@@ -1,4 +1,4 @@
-<?php12345
+<?php
 //This script will handle login
 session_start();
 
