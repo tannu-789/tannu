@@ -10,9 +10,10 @@ $username_err = $password_err = $confirm_password_err = "";
 if ($_SERVER['REQUEST_METHOD'] == "POST"){
   $username = $_POST["username"];
   $password = $_POST["password"];
+  $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
 
-  $sql = "INSERT INTO `users` (`username`, `password`) VALUES ('$username', '$password')";
+  $sql = "INSERT INTO `users` (`username`, `password`) VALUES ('$username', '$hashed_password')";
   $stmt = mysqli_query($conn, $sql);
   if($stmt){
     header("location:index.php");
